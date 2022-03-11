@@ -16,6 +16,6 @@ jobs:
       - name: Test Execution
         run: |
           conda install python==3.7 -y
-          python -m pip install notebook
+          python -m pip install notebook rdkit-python
           jupyter nbconvert --to script ArClOTs_analysis.ipynb
           ipython ArClOTs_analysis.py
