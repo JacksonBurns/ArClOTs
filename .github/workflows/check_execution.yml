@@ -13,12 +13,10 @@ jobs:
     name: Check Notebook Execution
     steps:
       - uses: actions/checkout@v2
-        name: Checkout Latest Changes
-          
       - uses: actions/setup-python@v2
-        name: Install Dependencies
         with:
           python-version: '3.7'
+      - name: Install Dependencies
         run: |
           python -m pip install notebook
           
