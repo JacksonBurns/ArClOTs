@@ -13,11 +13,9 @@ jobs:
     name: Check Notebook Execution
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.7'
       - name: Test Execution
         run: |
+          conda install python==3.7 -y
           python -m pip install notebook
           jupyter nbconvert --to script ArClOTs_analysis.ipynb
           ipython ArClOTs_analysis.py
