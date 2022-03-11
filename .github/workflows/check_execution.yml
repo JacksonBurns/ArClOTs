@@ -1,0 +1,25 @@
+name: Check Execution
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          python -m pip install notebook
+          
+      - name: Convert Notebook to Executable
+        run: |
+          jupyter nbconvert --to script ArClOTs_analysis.ipynb
+      
+      - name: Execute Notebook Script
+        run: |
+          ipython ArClOTs_analysis.py
